@@ -19,4 +19,10 @@ ajouterConnaissance(connaissance: Connaissance) {
     connaissance
   );
 }
+interrogerAssistant(question: string) {
+  return this.http.post(
+    `${this.apiUrl}/assistant`,
+    { question: question }
+  );
+}
 }

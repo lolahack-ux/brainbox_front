@@ -1,0 +1,30 @@
+<section class="assistant">
+  <h2>Assistant BrainBox</h2>
+
+  <p>
+    Pose une question sur les connaissances enregistrées dans BrainBox.
+  </p>
+
+  <form (ngSubmit)="poserQuestion()">
+    <label for="question">Votre question</label>
+
+    <textarea
+      id="question"
+      name="question"
+      rows="5"
+      [(ngModel)]="question"
+      placeholder="Exemple : Comment lancer mes conteneurs Docker ?"
+    ></textarea>
+
+    <button type="submit">
+      Poser la question
+    </button>
+  </form>
+
+  @if (reponse()) {
+  <section class="reponse">
+    <h3>Réponse</h3>
+
+    <p>{{ reponse() }}</p>
+  </section>
+}
