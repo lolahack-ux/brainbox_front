@@ -28,3 +28,45 @@ Local: http://localhost:4200/
 ```bash
 ng generate component conv
 ```
+
+## Angular
+
+### Générer un service 
+```bash
+ng generate service services/connaissance
+```
+Service
+→ prépare la requête
+
+Composant
+→ s’abonne et déclenche la requête
+
+### Générer un component
+```bash
+ng generate component components/connaissances
+```
+```bash
+Angular crée le composant
+        ↓
+ngOnInit() est exécuté
+        ↓
+chargerConnaissances() est appelée
+        ↓
+le service envoie GET /allConnaissances
+        ↓
+Express interroge MongoDB
+        ↓
+le tableau est renvoyé à Angular
+        ↓
+this.connaissances reçoit les données
+
+```
+```bash
+URL /connaissances
+        ↓
+Angular cherche une route correspondante
+        ↓
+component: Connaissances
+        ↓
+Angular insère le composant dans router-outlet
+```

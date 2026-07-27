@@ -1,0 +1,23 @@
+<section class="connaissances">
+  <h1>Mes connaissances techniques</h1>
+
+  <p>Nombre reçu :{{ connaissances().length }}</p>
+
+ @for (connaissance of connaissances(); track $index) {
+    <article class="connaissance">
+      <h2>{{ connaissance.titre }}</h2>
+
+      <p>
+        <strong>Type :</strong>
+        {{ connaissance.type }}
+      </p>
+
+      <p>
+        <strong>Description :</strong>
+        {{ connaissance.description }}
+      </p>
+    </article>
+  } @empty {
+    <p>Aucune connaissance trouvée.</p>
+  }
+</section>

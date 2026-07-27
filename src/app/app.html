@@ -1,9 +1,7 @@
-<main class="brainbox">
+<header>
   <h1>{{ title() }}</h1>
+</header>
 
-  <p>{{ message() }}</p>
-
-  <button (click)="changerMessage()">
-    Tester
-  </button>
+<main>
+  <router-outlet />
 </main>
