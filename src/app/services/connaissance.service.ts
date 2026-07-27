@@ -13,4 +13,10 @@ getAllConnaissances() {
     `${this.apiUrl}/allConnaissances`
   );
 }
+ajouterConnaissance(connaissance: Connaissance) {
+  return this.http.post(
+    `${this.apiUrl}/alimentation`,
+    connaissance
+  );
+}
 }

@@ -1,0 +1,115 @@
+<section class="ajout-connaissance">
+  <h1>Ajouter une connaissance</h1>
+
+  <form (ngSubmit)="ajouterConnaissance()">
+    <div class="champ">
+      <label for="titre">Titre</label>
+      
+      <input
+            id="titre"
+            name="titre"
+            type="text"
+            [(ngModel)]="titre"
+            placeholder="Exemple : Lancer Docker Compose" 
+      />
+    </div>
+
+    <div class="champ">
+      <label for="type">Type</label>
+
+      <input
+        id="type"
+        name="type"
+        type="text"
+        [(ngModel)]="type"
+        placeholder="Exemple : commande"
+        />
+    </div>
+
+    <div class="champ">
+      <label for="technologies">Technologies</label>
+
+     <input
+        id="technologies"
+        name="technologies"
+        type="text"
+        [(ngModel)]="technologies"
+        placeholder="Exemple : Docker, Node.js"
+    />
+    </div>
+
+    <div class="champ">
+      <label for="description">Description</label>
+
+        <textarea
+        id="description"
+        name="description"
+        rows="4"
+        [(ngModel)]="description"
+        placeholder="Explique à quoi sert cette connaissance"
+        ></textarea>
+    </div>
+
+    <div class="champ">
+      <label for="code">Code ou commande</label>
+
+      <textarea
+        id="code"
+        name="code"
+        rows="8"
+        [(ngModel)]="code"
+        placeholder="Exemple : docker compose up"
+        ></textarea>
+    </div>
+
+    <div class="champ">
+      <label for="projet">Projet</label>
+
+     <input
+        id="projet"
+        name="projet"
+        type="text"
+        [(ngModel)]="projet"
+        placeholder="Exemple : BrainBox"
+        />
+    </div>
+
+    <div class="champ">
+      <label for="fichier">Fichier d’origine</label>
+
+      <input
+        id="fichier"
+        name="fichier"
+        type="text"
+        [(ngModel)]="fichier"
+        placeholder="Exemple : compose.yaml"
+        />
+    </div>
+
+    <div class="champ">
+      <label for="tags">Tags</label>
+
+      <input
+        id="tags"
+        name="tags"
+        type="text"
+        [(ngModel)]="tags"
+        placeholder="Exemple : docker, compose, conteneur"
+        />
+    </div>
+
+    <button type="submit">
+      Ajouter la connaissance
+    </button>
+    @if (messageSucces) {
+    <p class="message-succes">
+    {{ messageSucces }}
+    </p>
+  }
+    @if (messageErreur) {
+    <p class="message-erreur">
+    {{ messageErreur }}
+    </p>
+    }
+  </form>
+</section>

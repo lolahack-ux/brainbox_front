@@ -1,17 +1,22 @@
-.brainbox {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 24px;
+.header {
+  padding: 20px;
+  border-bottom: 1px solid #cccccc;
 }
 
-h1 {
-  font-size: 40px;
+.header h1 {
+  margin-top: 0;
 }
 
-p {
-  font-size: 18px;
+.navigation {
+  display: flex;
+  gap: 20px;
 }
 
-button {
-  padding: 10px 16px;
+.navigation a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.navigation a:hover {
+  text-decoration: underline;
 }
