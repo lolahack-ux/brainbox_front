@@ -21,6 +21,9 @@ export class ModificationConnaissance implements OnInit {
   fichier = '';
   tags = '';
 
+  messageSucces = signal('');
+  messageErreur = signal('');
+
   idConnaissance = '';
 
   connaissance = signal<Connaissance | null>(null);
@@ -88,19 +91,68 @@ export class ModificationConnaissance implements OnInit {
         }
       });
   }
-        enregistrerModification(): void {
-          console.log('Modification demandée');
 
-          console.log({
-            id: this.idConnaissance,
-            titre: this.titre,
-            type: this.type,
-            technologies: this.technologies,
-            description: this.description,
-            code: this.code,
-            projet: this.projet,
-            fichier: this.fichier,
-            tags: this.tags
-          });
-        }
+  enregistrerModification(): void {
+  const technologiesTableau = this.technologies
+    .split(',')
+    .map((technologie) => technologie.trim())
+    .filter((technologie) => technologie !== '');
+
+  const tagsTableau = this.tags
+    .split(',')
+    .map((tag) => tag.trim())
+    .filter((tag) => tag !== '');
+
+  const connaissanceModifiee: Partial<Connaissance> = {
+  titre: this.titre,
+  type: this.type,
+  technologies: technologiesTableau,
+  description: this.description,
+  code: this.code || null,
+  projet: this.projet,
+  fichier: this.fichier || null,
+  tags: tagsTableau
+};
+
+console.log(
+  'Connaissance envoyée pour modification :',
+  connaissanceModifiee
+);
+
+this.connaissanceService
+  .modifierConnaissance(
+    this.idConnaissance,
+    connaissanceModifiee
+  )
+  .subscribe({
+    next: (resultat) => {
+      console.log(
+        'Modification enregistrée :',
+        resultat
+      );
+
+      this.messageSucces =
+        'La connaissance a bien été modifiée.';
+
+      this.messageErreur = '';
+    },
+
+    error: (erreur) => {
+      console.error(
+        'Erreur lors de la modification :',
+        erreur
+      );
+
+      console.error(
+        'Réponse du backend :',
+        erreur.error
+      );
+
+      this.messageErreur =
+        'Une erreur est survenue pendant la modification.';
+
+      this.messageSucces = '';
+    }
+  });
+  }
 }

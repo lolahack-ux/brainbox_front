@@ -70,8 +70,20 @@
         <button type="submit">
         Enregistrer les modifications
         </button>
-    </form>
-  } @else {
-    <p>Chargement de la connaissance...</p>
-  }
+
+        @if (messageSucces()) {
+        <p class="message-succes">
+            {{ messageSucces() }}
+        </p>
+        }
+
+        @if (messageErreur()) {
+        <p class="message-erreur">
+            {{ messageErreur() }}
+        </p>
+        }
+            </form>
+        } @else {
+            <p>Chargement de la connaissance...</p>
+        }
 </section>

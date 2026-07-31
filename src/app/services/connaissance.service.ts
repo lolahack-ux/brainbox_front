@@ -39,4 +39,14 @@ interrogerAssistant(question: string) {
     { question: question }
   );
 }
+
+modifierConnaissance(
+  id: string,
+  connaissance: Partial<Connaissance>
+) {
+  return this.http.put(
+    `${this.apiUrl}/updatedoc/${id}`,
+    connaissance
+  );
+}
 }
