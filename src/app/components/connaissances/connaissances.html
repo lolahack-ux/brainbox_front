@@ -16,7 +16,13 @@
         <strong>Description :</strong>
         {{ connaissance.description }}
       </p>
+
+      <a class="bouton-modifier" [routerLink]="['/modifier', connaissance._id]">
+       Modifier
+      </a>
+
     </article>
+    
   } @empty {
     <p>Aucune connaissance trouvée.</p>
   }

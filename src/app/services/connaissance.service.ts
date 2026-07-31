@@ -6,19 +6,33 @@ import { Connaissance } from '../models/connaissance';
   providedIn: 'root'
 })
 export class ConnaissanceService {
-private readonly apiUrl = 'http://localhost:3001';
+  private readonly apiUrl = 'http://localhost:3001';
+
   constructor(private http: HttpClient) {}
-getAllConnaissances() {
-  return this.http.get<Connaissance[]>(
-    `${this.apiUrl}/allConnaissances`
-  );
-}
-ajouterConnaissance(connaissance: Connaissance) {
-  return this.http.post(
-    `${this.apiUrl}/alimentation`,
-    connaissance
-  );
-}
+
+  getAllConnaissances() {
+    return this.http.get<Connaissance[]>(
+      `${this.apiUrl}/allConnaissances`
+    );
+  }
+
+  getConnaissanceById(id: string) {
+    return this.http.get<Connaissance>(
+      `${this.apiUrl}/connaissance`,
+      { 
+        params: { id }
+      } 
+    );
+  } 
+
+  ajouterConnaissance(connaissance: Connaissance) {
+    return this.http.post(
+      `${this.apiUrl}/alimentation`,
+      connaissance
+    );
+  }
+
+
 interrogerAssistant(question: string) {
   return this.http.post(
     `${this.apiUrl}/assistant`,

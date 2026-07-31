@@ -1,10 +1,11 @@
 import { Component, OnInit, signal } from '@angular/core';
 import { ConnaissanceService } from '../../services/connaissance.service';
 import { Connaissance } from '../../models/connaissance';
+import { RouterLink } from '@angular/router';
 
-@Component({
+@Component({ 
   selector: 'app-connaissances',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './connaissances.html',
   styleUrl: './connaissances.scss',
 })

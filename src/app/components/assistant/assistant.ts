@@ -12,38 +12,38 @@ import { ConnaissanceService } from '../../services/connaissance.service';
 
 export class Assistant {
   question = '';
- reponse = signal('');
+  reponse = signal('');
 
   constructor(
-  private connaissanceService: ConnaissanceService
-) {}
+    private connaissanceService: ConnaissanceService
+  ) { }
 
   poserQuestion(): void {
-  console.log('Question envoyée :', this.question);
+    console.log('Question envoyée :', this.question);
 
-  this.connaissanceService
-    .interrogerAssistant(this.question)
-    .subscribe({
-     next: (resultat: any) => {
-  console.log(
-    "Réponse reçue de l'assistant :",
-    resultat
-  );
+    this.connaissanceService
+      .interrogerAssistant(this.question)
+      .subscribe({
+        next: (resultat: any) => {
+          console.log(
+            "Réponse reçue de l'assistant :",
+            resultat
+          );
 
-  this.reponse.set(resultat.reponse_ia);
-},
+          this.reponse.set(resultat.reponse_ia);
+        },
 
-      error: (erreur) => {
-  console.error(
-    "Erreur complète lors de l'appel à l'assistant :",
-    erreur
-  );
+        error: (erreur) => {
+          console.error(
+            "Erreur complète lors de l'appel à l'assistant :",
+            erreur
+          );
 
-  console.error(
-    'Réponse envoyée par le backend :',
-    erreur.error
-  );
-}
-    });
-}
+          console.error(
+            'Réponse envoyée par le backend :',
+            erreur.error
+          );
+        }
+      });
+  }
 }
