@@ -1,2 +1,77 @@
-<p>modification-connaissance works!</p>
+<section class="modification-connaissance">
+  <h2>Modifier une connaissance</h2>
 
+  @if (connaissance()) {
+    <form (ngSubmit)="enregistrerModification()">
+      <label for="titre">Titre</label>
+      <input
+        id="titre"
+        name="titre"
+        type="text"
+        [(ngModel)]="titre"
+      />
+
+      <label for="type">Type</label>
+      <input
+        id="type"
+        name="type"
+        type="text"
+        [(ngModel)]="type"
+      />
+
+      <label for="technologies">Technologies</label>
+      <input
+        id="technologies"
+        name="technologies"
+        type="text"
+        [(ngModel)]="technologies"
+      />
+
+      <label for="description">Description</label>
+      <textarea
+        id="description"
+        name="description"
+        rows="4"
+        [(ngModel)]="description"
+      ></textarea>
+
+      <label for="code">Code</label>
+      <textarea
+        id="code"
+        name="code"
+        rows="8"
+        [(ngModel)]="code"
+      ></textarea>
+
+      <label for="projet">Projet</label>
+      <input
+        id="projet"
+        name="projet"
+        type="text"
+        [(ngModel)]="projet"
+      />
+
+      <label for="fichier">Fichier</label>
+      <input
+        id="fichier"
+        name="fichier"
+        type="text"
+        [(ngModel)]="fichier"
+      />
+
+      <label for="tags">Tags</label>
+      <input
+        id="tags"
+        name="tags"
+        type="text"
+        [(ngModel)]="tags"
+      />
+
+        <button type="submit">
+        Enregistrer les modifications
+        </button>
+    </form>
+  } @else {
+    <p>Chargement de la connaissance...</p>
+  }
+</section>

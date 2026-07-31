@@ -1,0 +1,21 @@
+.modification-connaissance {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+input,
+textarea {
+  padding: 10px;
+}
+
+button {
+  width: fit-content;
+  padding: 10px 16px;
+  cursor: pointer;
+}
