@@ -131,10 +131,10 @@ this.connaissanceService
         resultat
       );
 
-      this.messageSucces =
-        'La connaissance a bien été modifiée.';
+      this.messageSucces.set (
+        'La connaissance a bien été modifiée.');
 
-      this.messageErreur = '';
+      this.messageErreur.set ('');
     },
 
     error: (erreur) => {
@@ -148,10 +148,10 @@ this.connaissanceService
         erreur.error
       );
 
-      this.messageErreur =
-        'Une erreur est survenue pendant la modification.';
+      this.messageErreur.set(
+        'Une erreur est survenue pendant la modification.');
 
-      this.messageSucces = '';
+      this.messageSucces.set('');
     }
   });
   }
