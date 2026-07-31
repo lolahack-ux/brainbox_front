@@ -1,30 +1,58 @@
-<section class="assistant">
-  <h2>Assistant BrainBox</h2>
+<section class="page-retro">
+  <div class="fenetre-retro">
+    <header class="barre-retro">
+      <span>assistant_brainbox.exe</span>
 
-  <p>
-    Pose une question sur les connaissances enregistrées dans BrainBox.
-  </p>
+      <div class="commandes-fenetre">
+        <span>_</span>
+        <span>□</span>
+        <span>×</span>
+      </div>
+    </header>
 
-  <form (ngSubmit)="poserQuestion()">
-    <label for="question">Votre question</label>
+    <div class="contenu-retro assistant-contenu">
+      <div class="assistant-mascotte">
+        <img
+          src="/images/mascotte-brainbox.jpg"
+          alt="Mascotte de BrainBox"
+        />
 
-    <textarea
-      id="question"
-      name="question"
-      rows="5"
-      [(ngModel)]="question"
-      placeholder="Exemple : Comment lancer mes conteneurs Docker ?"
-    ></textarea>
+        <div class="bulle-retro">
+          Pose-moi une question sur tes
+          connaissances techniques !
+        </div>
+      </div>
 
-    <button type="submit">
-      Poser la question
-    </button>
-  </form>
+      <form
+        class="formulaire-retro"
+        (ngSubmit)="poserQuestion()"
+      >
+        <label for="question">
+          Votre question
+        </label>
 
-  @if (reponse()) {
-  <section class="reponse">
-    <h3>Réponse</h3>
+        <textarea
+          id="question"
+          name="question"
+          rows="5"
+          [(ngModel)]="question"
+          placeholder="Exemple : Comment lancer Docker Compose ?"
+        ></textarea>
 
-    <p>{{ reponse() }}</p>
-  </section>
-}
+        <button
+          class="bouton-retro bouton-rose"
+          type="submit"
+        >
+          💬 Poser la question
+        </button>
+      </form>
+
+      @if (reponse()) {
+        <section class="reponse-retro">
+          <h3>Réponse de BrainBox</h3>
+          <p>{{ reponse() }}</p>
+        </section>
+      }
+    </div>
+  </div>
+</section>

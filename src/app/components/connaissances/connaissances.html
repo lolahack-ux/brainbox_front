@@ -1,29 +1,42 @@
-<section class="connaissances">
-  <h1>Mes connaissances techniques</h1>
+<section class="page-retro">
+  <div class="fenetre-retro">
+    <header class="barre-retro">
+      <span>connaissances.exe</span>
 
-  <p>Nombre reçu :{{ connaissances().length }}</p>
+      <div class="commandes-fenetre">
+        <span>_</span>
+        <span>□</span>
+        <span>×</span>
+      </div>
+    </header>
 
- @for (connaissance of connaissances(); track $index) {
-    <article class="connaissance">
-      <h2>{{ connaissance.titre }}</h2>
+    <div class="contenu-retro">
+      <h2 class="titre-retro">
+        Mes connaissances
+      </h2>
 
-      <p>
-        <strong>Type :</strong>
-        {{ connaissance.type }}
-      </p>
+      <div class="grille-connaissances">
+        @for (
+          connaissance of connaissances();
+          track connaissance._id
+        ) {
+          <article class="carte-connaissance">
+            <h3>{{ connaissance.titre }}</h3>
 
-      <p>
-        <strong>Description :</strong>
-        {{ connaissance.description }}
-      </p>
+            <p>{{ connaissance.description }}</p>
 
-      <a class="bouton-modifier" [routerLink]="['/modifier', connaissance._id]">
-       Modifier
-      </a>
-
-    </article>
-    
-  } @empty {
-    <p>Aucune connaissance trouvée.</p>
-  }
+            <a
+              class="bouton-retro bouton-rose"
+              [routerLink]="[
+                '/modifier',
+                connaissance._id
+              ]"
+            >
+              ✏️ Modifier
+            </a>
+          </article>
+        }
+      </div>
+    </div>
+  </div>
 </section>

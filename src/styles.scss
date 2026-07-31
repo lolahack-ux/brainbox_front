@@ -1,1 +1,173 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --menthe: #ccebe7;
+  --rose: #f6b8c6;
+  --jaune: #fff1b8;
+  --violet: #d4d0f3;
+  --blanc: #ffffff;
+  --noir: #2b2b2b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: var(--noir);
+  background-color: var(--menthe);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+/* Fond commun de chaque page */
+.page-retro {
+  min-height: calc(100vh - 130px);
+  padding: 40px 24px;
+  background:
+    radial-gradient(
+      circle at 10% 15%,
+      rgba(246, 184, 198, 0.7) 0 75px,
+      transparent 77px
+    ),
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(255, 241, 184, 0.8) 0 100px,
+      transparent 102px
+    ),
+    var(--menthe);
+}
+
+/* Fenêtre principale */
+.fenetre-retro {
+  max-width: 1000px;
+  margin: 0 auto;
+  border: 3px solid var(--noir);
+  background: var(--blanc);
+  box-shadow:
+    8px 8px 0 var(--violet),
+    12px 12px 0 var(--noir);
+}
+
+/* Barre supérieure façon Windows 90 */
+.barre-retro {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 12px;
+  border-bottom: 3px solid var(--noir);
+  background: linear-gradient(
+    90deg,
+    var(--rose),
+    var(--jaune),
+    var(--menthe)
+  );
+  font-family: monospace;
+  font-weight: bold;
+}
+
+.commandes-fenetre {
+  display: flex;
+  gap: 5px;
+}
+
+.commandes-fenetre span {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 24px;
+  border: 2px solid var(--noir);
+  background: #eeeeee;
+}
+
+/* Contenu intérieur */
+.contenu-retro {
+  padding: 32px;
+}
+
+.titre-retro {
+  margin-top: 0;
+  font-family: Georgia, serif;
+  font-size: clamp(32px, 5vw, 54px);
+  text-shadow:
+    2px 2px 0 var(--rose),
+    4px 4px 0 var(--noir);
+}
+
+/* Boutons et liens */
+.bouton-retro {
+  display: inline-block;
+  padding: 10px 16px;
+  border: 3px solid var(--noir);
+  background: var(--jaune);
+  color: var(--noir);
+  font-family: monospace;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 4px 4px 0 var(--noir);
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.bouton-retro:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--noir);
+}
+
+.bouton-rose {
+  background: var(--rose);
+}
+
+.bouton-violet {
+  background: var(--violet);
+}
+
+/* Formulaires */
+.formulaire-retro {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.formulaire-retro label {
+  font-family: monospace;
+  font-weight: bold;
+}
+
+.formulaire-retro input,
+.formulaire-retro textarea {
+  width: 100%;
+  padding: 11px;
+  border: 2px solid var(--noir);
+  background: #fffdf8;
+  box-shadow: inset 2px 2px 0 #cccccc;
+}
+
+.formulaire-retro input:focus,
+.formulaire-retro textarea:focus {
+  outline: 3px solid var(--rose);
+}
+
+/* Messages */
+.message-succes {
+  padding: 12px;
+  border: 2px solid var(--noir);
+  background: #d9f5d0;
+  box-shadow: 4px 4px 0 var(--noir);
+  font-family: monospace;
+}
+
+.message-erreur {
+  padding: 12px;
+  border: 2px solid var(--noir);
+  background: #ffd1d1;
+  box-shadow: 4px 4px 0 var(--noir);
+  font-family: monospace;
+}

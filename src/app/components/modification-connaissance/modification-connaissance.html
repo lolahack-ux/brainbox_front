@@ -1,8 +1,22 @@
-<section class="modification-connaissance">
-  <h2>Modifier une connaissance</h2>
+<section class="page-retro">
+  <div class="fenetre-retro">
+    <header class="barre-retro">
+      <span>modifier_connaissance.exe</span>
+
+      <div class="commandes-fenetre">
+        <span>_</span>
+        <span>□</span>
+        <span>×</span>
+      </div>
+    </header>
+
+    <div class="contenu-retro">
+      <h2 class="titre-retro">
+        Modifier une connaissance
+      </h2>
 
   @if (connaissance()) {
-    <form (ngSubmit)="enregistrerModification()">
+    <form class="formulaire-retro" (ngSubmit)="enregistrerModification()">
       <label for="titre">Titre</label>
       <input
         id="titre"
@@ -67,9 +81,13 @@
         [(ngModel)]="tags"
       />
 
-        <button type="submit">
-        Enregistrer les modifications
-        </button>
+        <button
+            class="bouton-retro bouton-violet"
+            type="submit"
+          >
+            💾 Enregistrer les modifications
+          </button>
+
 
         @if (messageSucces()) {
         <p class="message-succes">
@@ -86,4 +104,6 @@
         } @else {
             <p>Chargement de la connaissance...</p>
         }
+      </div>
+  </div>   
 </section>

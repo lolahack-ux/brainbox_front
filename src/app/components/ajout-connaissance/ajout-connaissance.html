@@ -1,7 +1,23 @@
-<section class="ajout-connaissance">
-  <h1>Ajouter une connaissance</h1>
+<section class="page-retro">
+  <div class="fenetre-retro">
+    <header class="barre-retro">
+      <span>nouvelle_connaissance.exe</span>
 
-  <form (ngSubmit)="ajouterConnaissance()">
+      <div class="commandes-fenetre">
+        <span>_</span>
+        <span>□</span>
+        <span>×</span>
+      </div>
+    </header>
+
+    <div class="contenu-retro">
+      <h2 class="titre-retro">
+        Ajouter une connaissance
+      </h2>
+
+
+  <form  class="formulaire-retro"
+  (ngSubmit)="ajouterConnaissance()">
     <div class="champ">
       <label for="titre">Titre</label>
       
@@ -98,9 +114,12 @@
         />
     </div>
 
-    <button type="submit">
-      Ajouter la connaissance
-    </button>
+    <button
+          class="bouton-retro bouton-rose"
+          type="submit"
+        >
+          💾 Enregistrer
+        </button>
     @if (messageSucces) {
     <p class="message-succes">
     {{ messageSucces }}
@@ -112,4 +131,6 @@
     </p>
     }
   </form>
+   </div>
+  </div>
 </section>
